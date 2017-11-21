@@ -44,8 +44,9 @@ class FiguresController < ApplicationController
     end
 
     if !params[:landmark][:name].empty?
-      @landmark = Landmark.create(params[:landmark])
-      @figure.landmark_ids = @landmark.id
+      # @landmark = Landmark.create(params[:landmark])
+      # @figure.landmark_ids = @landmark.id
+      @figure.landmarks << Landmark.create(params[:landmark])
     end
     redirect "/figures/#{@figure.id}"
   end
