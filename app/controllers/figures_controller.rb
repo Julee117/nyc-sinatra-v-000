@@ -37,7 +37,7 @@ class FiguresController < ApplicationController
   post '/figures/:id' do
     @figure = Figure.find(params[:id])
     @figure.update(params[:figure])
-    unless params[:title][:name].empty?
+    if !params[:title][:name].empty?
       @title = Title.create(params[:title])
       @figure.title_ids = @title.id
     end
