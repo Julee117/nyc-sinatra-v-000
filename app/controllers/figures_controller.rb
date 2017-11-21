@@ -16,7 +16,7 @@ class FiguresController < ApplicationController
       @figure.title_ids = @title.id
     end
 
-    unless params[:landmark][:name].empty?
+    if !params[:landmark][:name].empty?
       @landmark = Landmark.create(params[:landmark])
       @figure.landmark_ids = @landmark.id
     end
