@@ -28,9 +28,9 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks/:id' do
-    @landmark = Landmark.find(params[:id])
-    @landmark.update(params[:landmark])
-    OR
+    # @landmark = Landmark.find(params[:id])
+    # @landmark.update(params[:landmark])
+    # OR
     @landmark.name = params["landmark"]["name"]
     @landmark.year_completed = params["landmark"]["year_completed"]
     @landmark.save
