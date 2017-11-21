@@ -12,13 +12,15 @@ class FiguresController < ApplicationController
   post '/figures' do
     @figure = Figure.create(params[:figure])
     if !params[:title][:name].empty?
-      @title = Title.create(params[:title])
-      @figure.title_ids = @title.id
+      # @title = Title.create(params[:title])
+      # @figure.title_ids = @title.id
+      @figure.titles << Title.create(params[:title])
     end
 
     if !params[:landmark][:name].empty?
-      @landmark = Landmark.create(params[:landmark])
-      @figure.landmark_ids = @landmark.id
+      # @landmark = Landmark.create(params[:landmark])
+      # @figure.landmark_ids = @landmark.id
+      @figure.landmarks << Landmark.create(params[:landmark])
     end
 
     redirect "/figures/#{@figure.id}"
